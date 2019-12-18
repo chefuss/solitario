@@ -112,15 +112,15 @@ var Juego = {
   obtenerUltimaOportunidad: function(mazo) {
     var cartasAEntregar;
     if (mazo == 'mazo1') {
-      cartasAEntregar = mazo1.splice(0, this.obtenerNumeroRandom(1, this.mazo1.length));
+      cartasAEntregar = this.mazo1.splice(0, this.obtenerNumeroRandom(1, this.mazo1.length));
     } else if (mazo == 'mazo2') {
-      cartasAEntregar = mazo2.splice(0, this.obtenerNumeroRandom(1, this.mazo2.length));
+      cartasAEntregar = this.mazo2.splice(0, this.obtenerNumeroRandom(1, this.mazo2.length));
     } else if (mazo == 'mazo3') {
-      cartasAEntregar = mazo3.splice(0, this.obtenerNumeroRandom(1, this.mazo3.length));
+      cartasAEntregar = this.mazo3.splice(0, this.obtenerNumeroRandom(1, this.mazo3.length));
     } else if (mazo == 'mazo4') {
-      cartasAEntregar = mazo4.splice(0, this.obtenerNumeroRandom(1, this.mazo4.length));
+      cartasAEntregar = this.mazo4.splice(0, this.obtenerNumeroRandom(1, this.mazo4.length));
     } else if (mazo == 'mazo5') {
-      cartasAEntregar = mazo5.splice(0, this.obtenerNumeroRandom(1, this.mazo5.length));
+      cartasAEntregar = this.mazo5.splice(0, this.obtenerNumeroRandom(1, this.mazo5.length));
     }
     // console.log(cartasAEntregar);
     this.mazosUtilizados = 5;
