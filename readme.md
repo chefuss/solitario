@@ -1,6 +1,6 @@
 # Solitario a la carta.
 
-## vamos a trabajar en arreglar un juego. 
+## Vamos a trabajar en arreglar un juego. 
 
 Está todo casi listo, pero nuestro cliente ha roto algunas cosas que tenemos que arreglar.
 
@@ -8,7 +8,7 @@ Para cada una de las tareas que hay que realizar he creado un trello, con descri
 
 ## Deberán:
 
-1. Separarse en grupos de nos más de 3 personas.
+1. Separarse en grupos de no más de 3 personas.
 2. Hacer un fork de este repositorio.
 3. Trabajar en su local en alguna de las 3 tareas que estan el Trello: 
   1. Contenedor reglas
