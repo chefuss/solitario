@@ -122,9 +122,8 @@ var Juego = {
     } else if (mazo == 'mazo5') {
       cartasAEntregar = this.mazo5.splice(0, this.obtenerNumeroRandom(1, this.mazo5.length));
     }
-    // console.log(cartasAEntregar);
     this.mazosUtilizados = 5;
-    this.cartas.prototype.crearCartas.bind(cartasAEntregar, '#cartas');
+    this.cartas.prototype.crearCartas(cartasAEntregar, '#cartas');
 
     var ultimaChanceContenedor = document.getElementById('last-chance');
     ultimaChanceContenedor.innerHTML =
