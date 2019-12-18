@@ -162,6 +162,7 @@ small {
   grid-template-columns: repeat(auto-fit,120px);
   grid-auto-rows: minmax(50px, auto);
   grid-gap: 20px;
+  justify-content: center;
 }
 #cartas {
   grid-auto-rows: minmax(50px, 60px);

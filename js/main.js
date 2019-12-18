@@ -23,6 +23,11 @@ var funcionesGenerales = {
   }
 }
 
+//utilizar los métodos de nuestro objeto funcioones generales.
+//1- escuchar el botón reglasbutton y si el usuario hace click quitar la clase closed de reglasContainer.
+
+//2- escuchar el botón reglasCerrar y si el usuarioo hace click agregar la clase closed a reglasContainer.
+
 reglasButton.onclick = function() {
   funcionesGenerales.quitar(reglasContainer, 'closed');
 };
