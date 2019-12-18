@@ -68,9 +68,25 @@ li {
 * * estilos para el botón 
 * */
 
+.button {
+  border: 0;
+  background-color: #e91e63;
+  padding: 20px 10px;
+  border-radius: 50px;
+  color: white;
+  margin: 10px 15px;
+  font-size: 1.2em;
+}
+
 /* *
 * * estilos para el botón secundario
 * */
+
+.button-secondary{
+  background-color: white;
+  border: 1px solid #e91e63;
+  color: #e91e63;
+}
 
 .button-cerrar {
   background: transparent;
@@ -106,6 +122,12 @@ li {
 /* *
 * * estilos para la clase hidden
 * */
+
+.hidden {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
 
 .footer {
   text-align: center;
