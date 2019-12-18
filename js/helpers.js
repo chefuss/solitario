@@ -1,7 +1,3 @@
-var reglasButton = document.getElementById('reglasButton');
-var reglasCerrar = document.getElementsByClassName('button-cerrar')[0];
-var reglasContainer = document.getElementById('reglas');
-
 var funcionesGenerales = {
   quitar: function(element, clase) {
     return element.classList.remove(clase);
@@ -23,9 +19,5 @@ var funcionesGenerales = {
   }
 }
 
-reglasButton.onclick = function() {
-  funcionesGenerales.quitar(reglasContainer, 'closed');
-};
-reglasCerrar.onclick = function() {
-  funcionesGenerales.agregar(reglasContainer, 'closed');
-}
+//selecciona los elementos del dom que sean necesarios para darle funcionalidad al contenedor reglas
+//luego haz lo que sea necesario para escuchar al usuario y actuar en consecuencia

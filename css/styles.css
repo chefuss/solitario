@@ -121,24 +121,10 @@ li {
 small {
   font-size: 80%;
 }
-#reglas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-width: 300px;
-  background: white;
-  height: 100%;
-  box-shadow: 1px 1px 4px #eee;
-  padding: 20px 30px;
-  transform: translateX(0);
-  transition: 0.4s ease;
-  z-index: 9;
-  color: #607d8b;
-}
-#reglas.closed,
-.closed {
-  transform: translateX(-100%);
-}
+/* *
+* * Aquí deberían estar el css para el contenedor de reglas
+* */
+
 /* tablero */
 #mazos,
 #cartas {
