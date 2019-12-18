@@ -233,7 +233,7 @@ function mostrarCartelUltimaOportunidad() {
 //====================================
 function mostrarCartelFinal() {
     var cartasSinUsar = document.querySelectorAll('.carta');
-    var puntaje = contarCartas(cartasSinUsar);
+    var puntaje = Carta.prototype.contarCartas(cartasSinUsar);
     if (puntaje >= 10) {
         mostrarCartel('GAME OVER', 'Lo sentimos pero perdiste!!!', puntaje);
     } else {
