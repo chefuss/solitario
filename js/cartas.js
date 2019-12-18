@@ -1,4 +1,9 @@
 // TODO crear función constructora de Carta
+var Carta = function(valor, palo, color){
+  this.valor = valor;
+  this.palo = palo;
+  this.color = color;
+} 
 
 // TODO crear función en el prototipo de Carta de crearCartas.
 
