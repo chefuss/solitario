@@ -6,6 +6,24 @@ var Carta = function(valor, palo, color){
 } 
 
 // TODO crear función en el prototipo de Carta de crearCartas.
+Carta.prototype.crearCartas = function(array,selector) {
+      array.forEach(element => 
+      {
+        var boton = document.createElement('button')
+        boton.classList.add('carta');
+
+      boton.setAttribute('carta-numero',element.valor);
+    boton.setAttribute('carta-palo',element.palo);
+      boton.setAttribute('carta-color',element.color);
+
+       boton.innerHTML='<span>' + element.valor + '</span>';
+       boton.classList.add(element.palo);
+       boton.classList.add(element.color);
+
+       funcionesGenerales.agregar(document.querySelector(selector),'is-visible');
+       document.querySelector(selector).append(boton);
+      });
+    }
 
 //otro todo
 
