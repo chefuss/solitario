@@ -130,9 +130,7 @@ h2 {
 * * estilos para #mazos y #cartas
 * */
 
-/* *
-* * estilos para #cartas
-* */
+
 
 /* *
 * * estilos para la clase section
@@ -141,6 +139,40 @@ h2 {
 /* *
 * * Estilos para mazo button
 * */
+.mazo {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.4s ease-in;
+}
+
+.mazo.is-visible {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+ }
+
+/* *
+* * estilos para #cartas
+* */
+.carta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 120px;
+  margin: 5px;
+  border-radius: 5px;
+  position: relative;
+  border: 5px solid #f7f7f7;
+  box-shadow: 0 -3px 3px rgba(58, 57, 57, 0.7);
+  background-color: #f7f7f7;
+}
 
 
 /* *
