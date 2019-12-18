@@ -19,5 +19,5 @@ var funcionesGenerales = {
   }
 }
 
-//selecciona los elementos del dom que sean necesarios para darle funcionalidad al contenedor reglas
-//luego haz lo que sea necesario para escuchar al usuario y actuar en consecuencia
+// TODO selecciona los elementos del dom que sean necesarios para darle funcionalidad al contenedor reglas
+// TODO luego haz lo que sea necesario para escuchar al usuario y actuar en consecuencia

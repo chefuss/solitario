@@ -1,19 +1,8 @@
-"use strict";
-
-//seleccionamos los elementos del dom que nos resulten esenciales para trabajar.
-//seleccionamos el contenedor de mazos, que es donde vamos a colocar nuestras cartas luego de que el usuario haga click
-var contenedorMazos = document.getElementById('mazos');
-
-//seleccionamos el elemento cartas, que contiene los botones que utiliza el usuario
-var contenedorCartas = document.getElementById('cartas');
-
-//en esta variable vamos a guardar el resultado de las cartas mezcladas.
-var cartasMezcladas = [];
+// TODO aquí debemos seleccionar los elementos del DOM: #mazos y #cartas.
 
 var Juego = {
   cartas: Carta,
-  contenedorMazos: contenedorMazos,
-  contenedorCartas: contenedorCartas,
+  //TODO aquí debemos crear las propiedades contenedoras de mazos y cartas y guardar la referencia el elemento del DOM
   naipes: [
     new Carta('A', 'corazon', 'rojo'),
     new Carta(2, 'corazon', 'rojo'),
@@ -70,13 +59,9 @@ var Juego = {
     new Carta('jocker', 'jocker', 'jocker1'),
     new Carta('jocker', 'jocker', 'jocker2')
   ],
-  cartasMezcladas: [],
-  mazo1: [],
-  mazo2: [],
-  mazo3: [],
-  mazo4: [],
-  mazo5: [],
-  mazosUtilizados: 0,
+  //TODO aquí debe estar la propiedad cartasMezcladas inicializada correctamente
+  //TODO aquí deben estar los mazos: mazo1, mazo2, etc.
+  //TODO aquí debemos crear la propiedad mazosUtilizados e inicializarla correctamente
   comenzarJuego: function() {
     this.cartasMezcladas = this.mezclar(this.naipes);
     console.log('juego listo y cargado para comenzar');
@@ -96,13 +81,7 @@ var Juego = {
     }
     return array;
   },
-  armarMazos: function() {
-    this.mazo1 = this.armarMazo();
-    this.mazo2 = this.armarMazo();
-    this.mazo3 = this.armarMazo();
-    this.mazo4 = this.armarMazo();
-    this.mazo5 = this.armarMazo();
-  },
+  // TODO: aquí debe estar el método armarMazos
   armarMazo: function() {
     return this.cartasMezcladas.splice(0, this.obtenerNumeroRandom(5, 15));
   },
@@ -203,34 +182,8 @@ function escucharCartas() {
     }
 } 
 
+// TODO: aquí debe ir la función mostrarCartelUltimaOportunidad
 
-function mostrarCartelUltimaOportunidad() {
-    //seleccionamos el último mazo que queda sin usar en el tablero.
-    var ultimoMazo = document.querySelector('.last');
-
-    //guardamos el id del último mazo antes seleccionado.
-    var ultimoMazoId = funcionesGenerales.obtenerAtributo(ultimoMazo, 'id');
-
-    //seleccionamos el contenedor de la última change.
-    var ultimaChanceContenedor = document.querySelector('#last-chance');
-
-    //seleccionamos los botones para aceptar la última chance o no
-    var botonSi = document.querySelector('#conlastchance');
-    var botonNo = document.querySelector('#sinlastchance');
-
-    funcionesGenerales.quitar(ultimaChanceContenedor, 'hidden');
-
-    botonSi.addEventListener('click', function () {
-        Juego.obtenerUltimaOportunidad(ultimoMazoId);
-    });
-
-    botonNo.addEventListener('click', mostrarCartelFinal);
-}
-
-
-//====================================
-//  FUNCIONES DEL JUEGO ESENCIALES.
-//====================================
 function mostrarCartelFinal() {
     var cartasSinUsar = document.querySelectorAll('.carta');
     var puntaje = Carta.prototype.contarCartas(cartasSinUsar);

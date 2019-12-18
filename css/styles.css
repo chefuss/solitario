@@ -59,26 +59,19 @@ a {
   color: inherit;
 }
 
-button {
-  font-size: 1.2em;
-}
 li {
   line-height: 1.4;
   margin-bottom: 10px;
 }
-.button {
-  border: 0;
-  background: #e91e63;
-  padding: 10px 20px;
-  border-radius: 50px;
-  color: white;
-  margin: 15px 10px;
-}
-.button-secondary {
-  background: white;
-  border: 1px solid #e91e63;
-  color: #e91e63;
-}
+
+/* *
+* * estilos para el botón 
+* */
+
+/* *
+* * estilos para el botón secundario
+* */
+
 .button-cerrar {
   background: transparent;
   border: 0;
@@ -109,11 +102,11 @@ li {
 .background-pink {
   background-color: #9c27b0;
 }
-.hidden {
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-}
+
+/* *
+* * estilos para la clase hidden
+* */
+
 .footer {
   text-align: center;
   /* margin-top: 30px; */
@@ -121,36 +114,35 @@ li {
 small {
   font-size: 80%;
 }
+
+h2 {
+  width: 100%;
+}
+
+
 /* *
 * * Aquí deberían estar el css para el contenedor de reglas
 * */
 
 /* tablero */
-#mazos,
-#cartas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,120px);
-  grid-auto-rows: minmax(50px, auto);
-  grid-gap: 20px;
-  justify-content: center;
-}
-#cartas {
-  grid-auto-rows: minmax(50px, 60px);
-}
-.section {
-  margin: 30px 0;
-}
-h2 {
-  width: 100%;
-}
-.mazo-button {
-  width: 100%;
-  height: 120px;
-  background: #607d8b;
-  border-radius: 5px;
-  margin: 5px;
-  color: white;
-}
+
+/* *
+* * estilos para #mazos y #cartas
+* */
+
+/* *
+* * estilos para #cartas
+* */
+
+/* *
+* * estilos para la clase section
+* */
+
+/* *
+* * Estilos para mazo button
+* */
+
+
 .mazo {
   display: flex;
   justify-content: flex-start;
@@ -193,12 +185,7 @@ h2 {
 .mazo-button:disabled {
   pointer-events: none;
 }
-.rojo {
-  /* background: #ff0041; */
-}
-.negro {
-  /* background: #4e4e4e; */
-}
+
 .jocker {
   background: #f7f7f7;
 }
