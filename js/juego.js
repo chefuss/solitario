@@ -254,14 +254,7 @@ function mostrarCartel(estado, frase, puntaje) {
         var score = document.createElement('p');
         score.textContent = 'Tu puntaje a sido: ' + puntaje;
         contenedor.append(score);
-
     }
-
-    // var button = document.createElement('button');
-    // button.classList.add('button');
-    // button.id = 'comenzar-juego';
-    // button.textContent = 'Comenzar nuevo juego';
-
     document.querySelector('#message').append(contenedor);
 }
 
