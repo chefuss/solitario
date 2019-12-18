@@ -5,13 +5,17 @@
 }
 body {
   font-family: rubik, sans-serif;
-  color: #4e4e4e;
+  color: white;
   display: grid;
   grid-template-columns: 0.5fr 4fr 0.5fr;
   grid-template-rows: 50px auto 50px;
   grid-gap: 30px;
   min-height: 100vh;
   margin: 0;
+  background-image: url(../img/green-velvet.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .header,
 .main,
@@ -129,6 +133,7 @@ small {
   transform: translateX(0);
   transition: 0.4s ease;
   z-index: 9;
+  color: #607d8b;
 }
 #reglas.closed,
 .closed {
