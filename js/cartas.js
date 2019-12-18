@@ -1,25 +1,6 @@
-//creamos una entidad cartas.
-function Carta(valor, palo, color) {
-  this.valor = valor;
-  this.palo = palo;
-  this.color = color;
-}
+// TODO crear función constructora de Carta
 
-Carta.prototype.crearCartas = function (array, selector) {
-  array.forEach(function(el) {
-    var carta = document.createElement('button');
-    funcionesGenerales.agregar(carta, 'carta');
-    funcionesGenerales.agregarAtributo(carta, 'carta-numero', el.valor);
-    funcionesGenerales.agregarAtributo(carta, 'carta-palo', el.palo);
-    funcionesGenerales.agregarAtributo(carta, 'carta-color', el.color);
-    carta.innerHTML = '<span>' + el.valor + '</span>';
-    funcionesGenerales.agregar(carta, el.palo);
-    funcionesGenerales.agregar(carta, el.color);
-    funcionesGenerales.agregar(document.querySelector(selector), 'is-visible');
-    document.querySelector(selector).append(carta);
-    return;
-  });
-};
+// TODO crear función en el prototipo de Carta de crearCartas.
 
 Carta.prototype.obtenerCarta = function(carta) {
     var numero = carta.getAttribute('carta-numero');
@@ -110,65 +91,4 @@ Carta.prototype.verificarPares = function() {
     return false;
 }
 
-Carta.prototype.contarCartas = function(array) {
-    var cantidad = 0;
-    for (var i = 0; i < array.length; i++) {
-        var numeroCarta = array[i].getAttribute('carta-numero');
-        if (numeroCarta == 'jocker') {
-            numeroCarta = 0;
-        } else if (numeroCarta == 'A') {
-            numeroCarta = 1;
-        } else if (numeroCarta == 'J') {
-            numeroCarta = 11;
-        } else if (numeroCarta == 'Q') {
-            numeroCarta = 12;
-        } else if (numeroCarta == 'K') {
-            numeroCarta = 13;
-        }
-        cantidad += parseInt(numeroCarta);
-    }
-    return cantidad;
-}
-
-Carta.prototype.compararCartas = function(array) {
-    var cartaUno = document.querySelector('[carta-numero="' + array[0][0] + '"][carta-palo="' + array[0][1] + '"]');
-    var cartaDos = document.querySelector('[carta-numero="' + array[1][0] + '"][carta-palo="' + array[1][1] + '"]');
-
-    var cartaUnoNombre = array[0][0];
-    var cartaUnoPalo = array[0][1];
-    var cartaUnoColor = array[0][2];
-
-    var cartaDosNombre = array[1][0];
-    var cartaDosPalo = array[1][1];
-    var cartaDosColor = array[1][2];
-
-    if (cartaUno == null || cartaDos == null) {
-        funcionesGenerales.vaciarArray(array);
-
-    } else if (cartaUnoNombre == 'jocker' || cartaDosNombre == 'jocker') {
-        this.eliminarCarta(cartaUno, cartaDos);
-
-    } else if ((cartaUnoNombre != cartaDosNombre) || (cartaUnoColor != cartaDosColor) || (cartaUnoPalo == cartaDosPalo)) {
-
-        //quitamos la clase disabled, que le habíamos agregado al seleccionarla.
-        funcionesGenerales.quitar(cartaUno, 'disabled');
-        funcionesGenerales.quitar(cartaDos, 'disabled');
-
-        funcionesGenerales.agregar(cartaUno, 'shake');
-        funcionesGenerales.agregar(cartaDos, 'shake');
-
-        //utilizamos la función setTimeout para quitar la clase shake a las mismas cartas.
-        setTimeout(function () {
-            funcionesGenerales.quitar(cartaUno, 'shake');
-            funcionesGenerales.quitar(cartaDos, 'shake');
-        }, 1000);
-        //setTimeoout(); recibe dos parámetros. el primero es la función a ejecutar cuando pase el tiempo establecido. El segundo es el tiempo en milisegundos.
-        //setTimeout(funcion(){}, tiempo);
-    } else {
-        //nuestro caso default será cuando las cartas coicidan.
-        //en este caso vamos a llamar la la función eliminarCarta, para quitar las cartas seleccionadas del dom.
-        this.eliminarCarta(cartaUno, cartaDos);
-    }
-    //al finalizar toda la lógica, vaciamos el array selected, para volver a empezar.
-    funcionesGenerales.vaciarArray(array);
-}
+// TODO agregar método al prototipo de Carta de contarCartas
