@@ -10,7 +10,7 @@ Para cada una de las tareas que hay que realizar he creado un trello, con descri
 
 1. Separarse en grupos de nos más de 3 personas.
 2. Hacer un fork de este repositorio.
-3. Trabajar en su local en alguna de las 3 tareas que estan el Trello:
+3. Trabajar en su local en alguna de las 3 tareas que estan el Trello: 
   1. Contenedor reglas
   2. Juego desplegado
   3. Mensaje última oportunidad
@@ -18,3 +18,12 @@ Para cada una de las tareas que hay que realizar he creado un trello, con descri
 5. Para incluir el código, cualquiera que sea, he dejado comentarios, por lo que  deberán leer todos los archivos que descarguen.
 6. Una vez finalizada la tarea, van a hacer un commit de los cambios realizados, y un pull request al repo original (el mio)
 7. Cuando su pull request esté aprobada se unirá al repo original, y la tarea estará finalizada.
+
+## Trello.
+
+Fijarse en cómo están distribuidas las tareas.
+El link se los paso por Slack.
+
+1. Asignarse las tareas correspondientes.
+2. Cuando empiecen a trabajar en una tarea deben moverla a la pestaña en proceso. 
+3. Cuando finalicen la tarea deben moverla a "hecho".
