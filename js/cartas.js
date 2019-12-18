@@ -7,6 +7,8 @@ var Carta = function(valor, palo, color){
 
 // TODO crear función en el prototipo de Carta de crearCartas.
 
+//otro todo
+
 Carta.prototype.obtenerCarta = function(carta) {
     var numero = carta.getAttribute('carta-numero');
     var palo = carta.getAttribute('carta-palo');
