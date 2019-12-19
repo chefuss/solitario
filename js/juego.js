@@ -1,8 +1,26 @@
 // TODO aquí debemos seleccionar los elementos del DOM: #mazos y #cartas.
+var contenedorMazos = document.getElementById("mazos");
+var contenedorCartas = document.getElementById("cartas");
 
 var Juego = {
   cartas: Carta,
   //TODO aquí debemos crear las propiedades contenedoras de mazos y cartas y guardar la referencia el elemento del DOM
+  contenedorCartas : contenedorCartas,
+  contenedorMazos: contenedorMazos,
+  cartasMezcladas: [],
+  mazo1: [],
+  mazo2: [],
+  mazo3: [],
+  mazo4: [],
+  mazo5: [],
+  mazosUtilizados : 0,
+  armarMazos: function(){
+    this.mazo1 = this.armarMazo();
+    this.mazo2 = this.armarMazo();
+    this.mazo3 = this.armarMazo();
+    this.mazo4 = this.armarMazo();
+    this.mazo5 = this.armarMazo();
+  },
   naipes: [
     new Carta('A', 'corazon', 'rojo'),
     new Carta(2, 'corazon', 'rojo'),
@@ -209,6 +227,4 @@ function mostrarCartel(estado, frase, puntaje) {
     }
     document.querySelector('#message').append(contenedor);
 }
-
-
 
