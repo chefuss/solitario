@@ -117,3 +117,29 @@ Carta.prototype.verificarPares = function() {
 }
 
 // TODO agregar método al prototipo de Carta de contarCartas
+Carta.prototype.contarCartas = function(arr = []){
+  let cantidad = 0;
+  arr.forEach(function(element){
+    switch (element.getAttribute('carta-numero')) {
+      case 'joker':
+        cantidad += 0;
+        break;
+      case 'A': 
+        cantidad += 1;
+        break;
+      case 'J':
+        cantidad += 11;
+        break;
+      case 'Q':
+        cantidad += 12;
+        break;
+      case 'K':
+        cantidad += 13;
+        break;
+      default:
+        cantidad += element.valor;
+        break;
+    }
+  })
+  return cantidad;
+}
