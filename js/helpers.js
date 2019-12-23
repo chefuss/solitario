@@ -25,7 +25,11 @@ var divReglas = document.getElementById('reglas');
 var divReglasButtonON = document.getElementById('reglasButton');
 var divReglasButtonOFF = document.getElementsByClassName('button-cerrar')[0];
 
-divReglasButtonON.addEventListener('click',funcionesGenerales.quitar(divReglas,'closed'));
-divReglasButtonOFF.addEventListener('click',funcionesGenerales.agregar(divReglas,'closed'));
+divReglasButtonON.addEventListener('click',function() {
+  funcionesGenerales.quitar(divReglas, 'closed');
+});
+divReglasButtonOFF.addEventListener('click',function() {
+  funcionesGenerales.agregar(divReglas, 'closed');
+});
 
 // TODO luego haz lo que sea necesario para escuchar al usuario y actuar en consecuencia

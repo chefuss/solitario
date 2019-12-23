@@ -59,35 +59,26 @@ a {
   color: inherit;
 }
 
+button {
+  font-size: 1.2em;
+}
 li {
   line-height: 1.4;
   margin-bottom: 10px;
 }
-
-/* *
-* * estilos para el botón 
-* */
-
 .button {
   border: 0;
-  background-color: #e91e63;
-  padding: 20px 10px;
+  background: #e91e63;
+  padding: 10px 20px;
   border-radius: 50px;
   color: white;
-  margin: 10px 15px;
-  font-size: 1.2em;
+  margin: 15px 10px;
 }
-
-/* *
-* * estilos para el botón secundario
-* */
-
-.button-secondary{
-  background-color: white;
+.button-secondary {
+  background: white;
   border: 1px solid #e91e63;
   color: #e91e63;
 }
-
 .button-cerrar {
   background: transparent;
   border: 0;
@@ -118,17 +109,11 @@ li {
 .background-pink {
   background-color: #9c27b0;
 }
-
-/* *
-* * estilos para la clase hidden
-* */
-
 .hidden {
   display: none;
   opacity: 0;
   visibility: hidden;
 }
-
 .footer {
   text-align: center;
   /* margin-top: 30px; */
@@ -136,31 +121,50 @@ li {
 small {
   font-size: 80%;
 }
-
+#reglas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 300px;
+  background: white;
+  height: 100%;
+  box-shadow: 1px 1px 4px #eee;
+  padding: 20px 30px;
+  transform: translateX(0);
+  transition: 0.4s ease;
+  z-index: 9;
+  color: #607d8b;
+}
+#reglas.closed,
+.closed {
+  transform: translateX(-100%);
+}
+/* tablero */
+#mazos,
+#cartas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,120px);
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 20px;
+  justify-content: center;
+}
+#cartas {
+  grid-auto-rows: minmax(50px, 60px);
+}
+.section {
+  margin: 30px 0;
+}
 h2 {
   width: 100%;
 }
-
-
-/* *
-* * Aquí deberían estar el css para el contenedor de reglas
-* */
-
-/* tablero */
-
-/* *
-* * estilos para #mazos y #cartas
-* */
-
-
-
-/* *
-* * estilos para la clase section
-* */
-
-/* *
-* * Estilos para mazo button
-* */
+.mazo-button {
+  width: 100%;
+  height: 120px;
+  background: #607d8b;
+  border-radius: 5px;
+  margin: 5px;
+  color: white;
+}
 .mazo {
   display: flex;
   justify-content: flex-start;
@@ -171,16 +175,11 @@ h2 {
   visibility: hidden;
   transition: transform 0.4s ease-in;
 }
-
 .mazo.is-visible {
   transform: translateX(0);
   opacity: 1;
   visibility: visible;
- }
-
-/* *
-* * estilos para #cartas
-* */
+}
 .carta {
   display: flex;
   justify-content: center;
@@ -193,22 +192,8 @@ h2 {
   position: relative;
   border: 5px solid #f7f7f7;
   box-shadow: 0 -3px 3px rgba(58, 57, 57, 0.7);
-  background-color: #f7f7f7;
+  background: #f7f7f7;
 }
-
-
-/* *
-* * Estilos para .mazo
-* */
-
-/* *
-* * Estilos para .mazo.is-visible
-* */
-
-/* *
-* * Estilos para .carta
-* */
-
 .carta span {
   pointer-events: none;
 }
@@ -222,7 +207,12 @@ h2 {
 .mazo-button:disabled {
   pointer-events: none;
 }
-
+.rojo {
+  /* background: #ff0041; */
+}
+.negro {
+  /* background: #4e4e4e; */
+}
 .jocker {
   background: #f7f7f7;
 }
@@ -256,33 +246,6 @@ h2 {
 .pica:before {
   content: url('../img/icon-pica.svg');
 }
-
-#mazos #cartas{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,120px);
-  grid-auto-rows: minmax(50px, auto);
-  grid-gap: 20px;
-  justify-content: center; 
-}
-
-#cartas{
-  grid-auto-rows: minmax(50px, 60px);
-}
-
-.section{
-  margin: 30px 0px 30px 0px;  
-}
-
-.mazo-button{
-  width: 100%;
-  height: 120px;
-  background-color: #607d8b;
-  border-radius: 5px;
-  margin: 5px;
-  color: #fff;
-}
-
-
 /*animation shake*/
 .shake {
   animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
@@ -307,24 +270,4 @@ h2 {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
-}
-
-#reglas {
-  position: absolute;
-  align-items: initial;
-  float: left;
-  max-width: 300px;
-  background: white;
-  height: 100%;
-  box-shadow: 1px 1px 4px #eee;
-  padding: 20px 30px 20px 30px;
-  transform: translateX(0);
-  transition: 0.4 ease;
-  z-index: 9;
-  color: #607d8b;
-}
-
-#reglas.closed{
-  transform:translateX(-100%);
-
 }

@@ -1,26 +1,19 @@
-// TODO aquí debemos seleccionar los elementos del DOM: #mazos y #cartas.
-var contenedorMazos = document.getElementById("mazos");
-var contenedorCartas = document.getElementById("cartas");
+'use strict';
+
+//seleccionamos los elementos del dom que nos resulten esenciales para trabajar.
+//seleccionamos el contenedor de mazos, que es donde vamos a colocar nuestras cartas luego de que el usuario haga click
+var contenedorMazos = document.getElementById('mazos');
+
+//seleccionamos el elemento cartas, que contiene los botones que utiliza el usuario
+var contenedorCartas = document.getElementById('cartas');
+
+//en esta variable vamos a guardar el resultado de las cartas mezcladas.
+var cartasMezcladas = [];
 
 var Juego = {
   cartas: Carta,
-  //TODO aquí debemos crear las propiedades contenedoras de mazos y cartas y guardar la referencia el elemento del DOM
-  contenedorCartas : contenedorCartas,
   contenedorMazos: contenedorMazos,
-  cartasMezcladas: [],
-  mazo1: [],
-  mazo2: [],
-  mazo3: [],
-  mazo4: [],
-  mazo5: [],
-  mazosUtilizados : 0,
-  armarMazos: function(){
-    this.mazo1 = this.armarMazo();
-    this.mazo2 = this.armarMazo();
-    this.mazo3 = this.armarMazo();
-    this.mazo4 = this.armarMazo();
-    this.mazo5 = this.armarMazo();
-  },
+  contenedorCartas: contenedorCartas,
   naipes: [
     new Carta('A', 'corazon', 'rojo'),
     new Carta(2, 'corazon', 'rojo'),
@@ -77,9 +70,13 @@ var Juego = {
     new Carta('jocker', 'jocker', 'jocker1'),
     new Carta('jocker', 'jocker', 'jocker2')
   ],
-  //TODO aquí debe estar la propiedad cartasMezcladas inicializada correctamente
-  //TODO aquí deben estar los mazos: mazo1, mazo2, etc.
-  //TODO aquí debemos crear la propiedad mazosUtilizados e inicializarla correctamente
+  cartasMezcladas: [],
+  mazo1: [],
+  mazo2: [],
+  mazo3: [],
+  mazo4: [],
+  mazo5: [],
+  mazosUtilizados: 0,
   comenzarJuego: function() {
     this.cartasMezcladas = this.mezclar(this.naipes);
     console.log('juego listo y cargado para comenzar');
@@ -99,7 +96,13 @@ var Juego = {
     }
     return array;
   },
-  // TODO: aquí debe estar el método armarMazos
+  armarMazos: function() {
+    this.mazo1 = this.armarMazo();
+    this.mazo2 = this.armarMazo();
+    this.mazo3 = this.armarMazo();
+    this.mazo4 = this.armarMazo();
+    this.mazo5 = this.armarMazo();
+  },
   armarMazo: function() {
     return this.cartasMezcladas.splice(0, this.obtenerNumeroRandom(5, 15));
   },
@@ -109,15 +112,30 @@ var Juego = {
   obtenerUltimaOportunidad: function(mazo) {
     var cartasAEntregar;
     if (mazo == 'mazo1') {
-      cartasAEntregar = this.mazo1.splice(0, this.obtenerNumeroRandom(1, this.mazo1.length));
+      cartasAEntregar = this.mazo1.splice(
+        0,
+        this.obtenerNumeroRandom(1, this.mazo1.length)
+      );
     } else if (mazo == 'mazo2') {
-      cartasAEntregar = this.mazo2.splice(0, this.obtenerNumeroRandom(1, this.mazo2.length));
+      cartasAEntregar = this.mazo2.splice(
+        0,
+        this.obtenerNumeroRandom(1, this.mazo2.length)
+      );
     } else if (mazo == 'mazo3') {
-      cartasAEntregar = this.mazo3.splice(0, this.obtenerNumeroRandom(1, this.mazo3.length));
+      cartasAEntregar = this.mazo3.splice(
+        0,
+        this.obtenerNumeroRandom(1, this.mazo3.length)
+      );
     } else if (mazo == 'mazo4') {
-      cartasAEntregar = this.mazo4.splice(0, this.obtenerNumeroRandom(1, this.mazo4.length));
+      cartasAEntregar = this.mazo4.splice(
+        0,
+        this.obtenerNumeroRandom(1, this.mazo4.length)
+      );
     } else if (mazo == 'mazo5') {
-      cartasAEntregar = this.mazo5.splice(0, this.obtenerNumeroRandom(1, this.mazo5.length));
+      cartasAEntregar = this.mazo5.splice(
+        0,
+        this.obtenerNumeroRandom(1, this.mazo5.length)
+      );
     }
     this.mazosUtilizados = 5;
     this.cartas.prototype.crearCartas(cartasAEntregar, '#cartas');
@@ -131,100 +149,130 @@ var Juego = {
   }
 };
 
-window.onload = function () {
-    Juego.comenzarJuego();
-    Juego.armarMazos();
-}
+window.onload = function() {
+  Juego.comenzarJuego();
+  Juego.armarMazos();
+};
 
 //escuchamos el click en los mazos.
 Juego.contenedorMazos.addEventListener('click', clickEnMazos);
 
-
 function clickEnMazos() {
-var elementoPadre = event.target.parentNode;
-var elementoPadreId = elementoPadre.getAttribute('id');
-if (event.target.nodeName == 'BUTTON') {
+  var elementoPadre = event.target.parentNode;
+  var elementoPadreId = elementoPadre.getAttribute('id');
+  if (event.target.nodeName == 'BUTTON') {
     if (elementoPadreId == 'mazo1') {
-        Carta.prototype.crearCartas(Juego.mazo1, '#cartas');
+      Carta.prototype.crearCartas(Juego.mazo1, '#cartas');
     } else if (elementoPadreId == 'mazo2') {
-        Carta.prototype.crearCartas(Juego.mazo2, '#cartas');
+      Carta.prototype.crearCartas(Juego.mazo2, '#cartas');
     } else if (elementoPadreId == 'mazo3') {
-        Carta.prototype.crearCartas(Juego.mazo3, '#cartas');
+      Carta.prototype.crearCartas(Juego.mazo3, '#cartas');
     } else if (elementoPadreId == 'mazo4') {
-        Carta.prototype.crearCartas(Juego.mazo4, '#cartas');
+      Carta.prototype.crearCartas(Juego.mazo4, '#cartas');
     } else if (elementoPadreId == 'mazo5') {
-        Carta.prototype.crearCartas(Juego.mazo5, '#cartas');
+      Carta.prototype.crearCartas(Juego.mazo5, '#cartas');
     } else {
-        console.log('algo salió mal, no hemos podido crear un mazo.');
+      console.log('algo salió mal, no hemos podido crear un mazo.');
     }
     funcionesGenerales.agregar(elementoPadre, 'clicked');
     funcionesGenerales.agregarAtributo(event.target, 'disabled', 'disabled');
     Juego.mazosUtilizados++;
     if (Juego.mazosUtilizados == 4) {
-        var todosLosMazos = elementoPadre.parentNode.children;
-        todosLosMazos = Array.prototype.slice.call(todosLosMazos);
-        var ultimoMazo = todosLosMazos.find(function (mazo) {
-            return mazo.className !== 'mazo-principal clicked';
-        });
-        funcionesGenerales.agregarAtributo(ultimoMazo.firstElementChild, 'disabled', 'disabled');
-        funcionesGenerales.agregar(ultimoMazo, 'last');
+      var todosLosMazos = elementoPadre.parentNode.children;
+      todosLosMazos = Array.prototype.slice.call(todosLosMazos);
+      var ultimoMazo = todosLosMazos.find(function(mazo) {
+        return mazo.className !== 'mazo-principal clicked';
+      });
+      funcionesGenerales.agregarAtributo(
+        ultimoMazo.firstElementChild,
+        'disabled',
+        'disabled'
+      );
+      funcionesGenerales.agregar(ultimoMazo, 'last');
     }
     escucharCartas();
-    }
+  }
 }
 function escucharCartas() {
-    var cartas = document.querySelectorAll('.carta');
-    var selected = [];
-    //creamos un for loop
-    for (var i = 0; i < cartas.length; i++) {
-        cartas[i].addEventListener('click', function () {
-            //verificamos que el click sea sobre un BUTTON.
-            if (event.target.nodeName == 'BUTTON') {
-                selected.push(Carta.prototype.obtenerCarta(this));
-                if (selected.length == 2) {
-                    Carta.prototype.compararCartas(selected);
-                } else if (selected.length >= 3) {
-                    funcionesGenerales.vaciarArray(selected);
-                }
-                if (Juego.mazosUtilizados == 4) {
-                    if (Carta.prototype.verificarPares() == true) {
-                        mostrarCartelUltimaOportunidad();
-                    }
-                } else if (Juego.mazosUtilizados == 5) {
-                    if (Carta.prototype.verificarPares() == true) {
-                        mostrarCartelFinal();
-                    }
-                }
-            }
-        });
-    }
-} 
+  var cartas = document.querySelectorAll('.carta');
+  var selected = [];
+  //creamos un for loop
+  for (var i = 0; i < cartas.length; i++) {
+    cartas[i].addEventListener('click', function() {
+      //verificamos que el click sea sobre un BUTTON.
+      if (event.target.nodeName == 'BUTTON') {
+        selected.push(Carta.prototype.obtenerCarta(this));
+        if (selected.length == 2) {
+          Carta.prototype.compararCartas(selected);
+        } else if (selected.length >= 3) {
+          funcionesGenerales.vaciarArray(selected);
+        }
+        if (Juego.mazosUtilizados == 4) {
+          if (Carta.prototype.verificarPares() == true) {
+            mostrarCartelUltimaOportunidad();
+          }
+        } else if (Juego.mazosUtilizados == 5) {
+          if (Carta.prototype.verificarPares() == true) {
+            mostrarCartelFinal();
+          }
+        }
+      }
+    });
+  }
+}
 
-// TODO: aquí debe ir la función mostrarCartelUltimaOportunidad
+function mostrarCartelUltimaOportunidad() {
+  //seleccionamos el último mazo que queda sin usar en el tablero.
+  var ultimoMazo = document.querySelector('.last');
 
+  //guardamos el id del último mazo antes seleccionado.
+  var ultimoMazoId = funcionesGenerales.obtenerAtributo(ultimoMazo, 'id');
+
+  //seleccionamos el contenedor de la última change.
+  var ultimaChanceContenedor = document.querySelector('#last-chance');
+
+  //seleccionamos los botones para aceptar la última chance o no
+  var botonSi = document.querySelector('#conlastchance');
+  var botonNo = document.querySelector('#sinlastchance');
+
+  funcionesGenerales.quitar(ultimaChanceContenedor, 'hidden');
+
+  botonSi.addEventListener('click', function() {
+    Juego.obtenerUltimaOportunidad(ultimoMazoId);
+  });
+
+  botonNo.addEventListener('click', mostrarCartelFinal);
+}
+
+//====================================
+//  FUNCIONES DEL JUEGO ESENCIALES.
+//====================================
 function mostrarCartelFinal() {
-    var cartasSinUsar = document.querySelectorAll('.carta');
-    var puntaje = Carta.prototype.contarCartas(cartasSinUsar);
-    if (puntaje >= 10) {
-        mostrarCartel('GAME OVER', 'Lo sentimos pero perdiste!!!', puntaje);
-    } else {
-        mostrarCartel('GANASTE!!!', 'Venciste!! Felicitaciones!! La próxima no será tan fácilllll!!', puntaje);
-    }
+  var cartasSinUsar = document.querySelectorAll('.carta');
+  var puntaje = Carta.prototype.contarCartas(cartasSinUsar);
+  if (puntaje >= 10) {
+    mostrarCartel('GAME OVER', 'Lo sentimos pero perdiste!!!', puntaje);
+  } else {
+    mostrarCartel(
+      'GANASTE!!!',
+      'Venciste!! Felicitaciones!! La próxima no será tan fácilllll!!',
+      puntaje
+    );
+  }
 }
 function mostrarCartel(estado, frase, puntaje) {
-    var contenedor = document.createElement('div');
-    contenedor.id = 'cartel';
-    var titulo = document.createElement('h2');
-    titulo.textContent = '¡' + estado + '!';
-    var parrafo = document.createElement('p');
-    parrafo.textContent = frase;
-    contenedor.append(titulo, parrafo);
+  var contenedor = document.createElement('div');
+  contenedor.id = 'cartel';
+  var titulo = document.createElement('h2');
+  titulo.textContent = '¡' + estado + '!';
+  var parrafo = document.createElement('p');
+  parrafo.textContent = frase;
+  contenedor.append(titulo, parrafo);
 
-    if (puntaje) {
-        var score = document.createElement('p');
-        score.textContent = 'Tu puntaje a sido: ' + puntaje;
-        contenedor.append(score);
-    }
-    document.querySelector('#message').append(contenedor);
+  if (puntaje) {
+    var score = document.createElement('p');
+    score.textContent = 'Tu puntaje a sido: ' + puntaje;
+    contenedor.append(score);
+  }
+  document.querySelector('#message').append(contenedor);
 }
-
